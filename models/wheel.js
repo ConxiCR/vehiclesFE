@@ -1,8 +1,8 @@
 "use strict";
 var Wheel = /** @class */ (function () {
-    function Wheel(diameter, brandW) {
+    function Wheel(diameter, brand) {
         this.diameter = diameter;
-        this.brandW = brandW;
+        this.brand = brand;
     }
     return Wheel;
 }());

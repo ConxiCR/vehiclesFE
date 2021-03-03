@@ -5,25 +5,27 @@ function createCar() {
     var plate = document.getElementById("inputPlate");
     var brand = document.getElementById("inputBrand");
     var color = document.getElementById("inputColor");
-    var data = "";
     var errorAccount = carValidate(plate, brand, color);
     if (errorAccount == false) {
-        var car_1 = new Car(plate.value, color.value, brand.value);
+        car = new Car(plate.value, color.value, brand.value);
         createCar();
         document.getElementById('showCar').innerHTML;
         showCar.innerHTML = "<ul>Plate: " + plate + "</ul>\n                      <ul>Brand: " + brand + "</ul>\n                      <ul>Color: " + color + "</ul>";
     }
 }
-function addWheels() {
-    var i;
-    var brandW = document.getElementById("inputBrandWheel");
-    var diameter = document.getElementById("inputDiameter");
-    var wheelDataValidation = wheelsValidate(brandW, diameter, i);
-    if (wheelDataValidation) {
-        new Wheel(brandW, diameter);
-        Car.addWheel(brandW, diameter, i);
-    }
-}
+/*function addWheels(){
+  let i: number;
+  let brandW:HTMLInputElement = <HTMLInputElement>document.getElementById("inputBrandWheel");
+  let diameter:HTMLInputElement = <HTMLInputElement>document.getElementById("inputDiameter");
+  let wheelDataValidation = wheelsValidate(brandW, diameter, i);
+  if(wheelDataValidation){
+
+  new Wheel(brandW, diameter);
+    Car.addWheel(brandW,diameter,i);
+
+    
+  }
+}*/
 /*
 document.body.innerText="CAR: PLATE: " + car.plate + " COLOR: " +car.color + " BRAND: " + car.brand
 + " WHEELS: " + JSON.stringify(car.wheel);  */
@@ -80,31 +82,34 @@ function plateValidation(plate) {
     return regex.test(plate) ? true : false;
 }
 //Form wheels validation
-function wheelsValidate(brandW, diameter, i) {
-    var form = document.getElementById('wheelFormId');
-    var errorWheelBrand = document.getElementById('errorWheelBrand');
-    var errorDiameter = document.getElementById('errorDiameter' + [i]);
-    var errorAccount = 0;
+/*function wheelsValidate(brandW:HTMLInputElement, diameter:HTMLInputElement, i:number){
+
+    const form:HTMLInputElement = <HTMLInputElement>document.getElementById('wheelFormId');
+    let errorWheelBrand:HTMLInputElement = <HTMLInputElement>document.getElementById('errorWheelBrand');
+    let errorDiameter:HTMLInputElement = <HTMLInputElement>document.getElementById('errorDiameter'+[i]);
+    let errorAccount = 0;
+
     form.classList.remove('is-invalid');
-    if (brandW.value == "") {
+
+    if (brandW.value == ""){
         brandW.classList.add("is-invalid");
-        errorWheelBrand.textContent = "Wheel brand required";
-        errorAccount++;
+    errorWheelBrand.textContent = "Wheel brand required";
+        errorAccount ++;
     }
-    if (diameter.value == "") {
-        diameter.classList.add("is-invalid");
-        errorDiameter.textContent = "Diameter required";
-        errorAccount++;
-    }
-    else if (diameter <= 0.4 || diameter.value > 2) {
-        diameter.classList.add("is-invalid");
-        errorDiameter.textContent = "Invalid diameter. The correct is > 0.4 and < 2 cm";
-        errorAccount++;
-    }
-    if (errorAccount > 0) {
-        return false;
-    }
-    else {
-        return true;
-    }
-}
+    
+  if (diameter.value == ""){
+      diameter.classList.add("is-invalid");
+      errorDiameter.textContent = "Diameter required";
+      errorAccount++;
+  }else if (diameter <= 0.4 || diameter.value > 2) {
+      diameter.classList.add("is-invalid");
+      errorDiameter.textContent = "Invalid diameter. The correct is > 0.4 and < 2 cm";
+      errorAccount++;
+  }
+
+  if (errorAccount > 0) {
+    return false;
+  }else{
+    return true;
+  }
+}*/

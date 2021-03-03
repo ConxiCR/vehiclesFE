@@ -1,17 +1,16 @@
-let car: Car[];//car's collection
+let car: Car;//car's collection
 let showCar:HTMLElement = document.getElementById('showCar');
 
 function createCar(){
   let plate:HTMLInputElement = <HTMLInputElement>document.getElementById("inputPlate");
   let brand:HTMLInputElement = <HTMLInputElement>document.getElementById("inputBrand");
   let color:HTMLInputElement = <HTMLInputElement>document.getElementById("inputColor");
-  let data:string = "";
-
+ 
   let errorAccount = carValidate(plate, brand, color);
   
   if(errorAccount == false){
 
-  const car:Car = new Car(plate.value, color.value, brand.value);
+  car = new Car(plate.value, color.value, brand.value);
     
   createCar();
 
@@ -22,7 +21,7 @@ function createCar(){
                       <ul>Color: ${color}</ul>`;
   }
 }
-function addWheels(){
+/*function addWheels(){
   let i: number;
   let brandW:HTMLInputElement = <HTMLInputElement>document.getElementById("inputBrandWheel");
   let diameter:HTMLInputElement = <HTMLInputElement>document.getElementById("inputDiameter");
@@ -34,7 +33,7 @@ function addWheels(){
 
     
   }
-}
+}*/
 /*
 document.body.innerText="CAR: PLATE: " + car.plate + " COLOR: " +car.color + " BRAND: " + car.brand 
 + " WHEELS: " + JSON.stringify(car.wheel);  */
@@ -95,7 +94,7 @@ function plateValidation(plate:string){
   return regex.test(plate) ? true : false;
 }
 //Form wheels validation
-function wheelsValidate(brandW:HTMLInputElement, diameter:HTMLInputElement, i:number){
+/*function wheelsValidate(brandW:HTMLInputElement, diameter:HTMLInputElement, i:number){
 
     const form:HTMLInputElement = <HTMLInputElement>document.getElementById('wheelFormId');
     let errorWheelBrand:HTMLInputElement = <HTMLInputElement>document.getElementById('errorWheelBrand');
@@ -125,4 +124,4 @@ function wheelsValidate(brandW:HTMLInputElement, diameter:HTMLInputElement, i:nu
   }else{
     return true;
   }
-}
+}*/

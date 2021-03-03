@@ -39,7 +39,7 @@
        <button class="open-button btn btn-outline-primary btn-md" onclick="openForm1()">Open Car's Form</button> 
        <div class="form-popup" id="carFormId">
             <h2 class="my-5 text-center text-primary"> Create Car </h2>
-            <form method="POST" action="index.html" class="was-validated" id="carContainerId" name="CarForm">
+            <form method="POST" id="carContainerId" name="CarForm">
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="inputPlate"> Plate </label>
@@ -48,16 +48,16 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inpuBrand">Brand</label>
-                        <input type="text" class="form-control" id="inputBrand" name="inputBrand"  placeholder="Enter Brand" required>
+                        <input type="text" class="form-control" id="inputBrand" name="inputBrand"  placeholder="Enter Brand" >
                         <div class="invalid-feedback" id="errorBrand"></div>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputColor">Color</label>
-                        <input type="text" class="form-control" id="inputColor" name="inputColor" placeholder="Enter Color" required>
+                        <input type="text" class="form-control" id="inputColor" name="inputColor" placeholder="Enter Color" >
                         <div class="invalid-feedback" id="errorColor"></div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" onclick="createCar()">Create Car</button>
+                <button type="button" class="btn btn-primary" onclick="createCar()">Create Car</button>
                 <button type="button" class="btn btn-danger cancel" onclick="closeForm1()">Close Cars Form</button>
             </form>
         </div>
@@ -72,42 +72,42 @@
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="inputBrandWheel">Wheel Brand 1</label>
-                        <input type="text" class="form-control" id="inputBrandWheel" name="inputBrandWheel" placeholder="Enter Brand Wheel 1" required>
+                        <input type="text" class="form-control" id="inputBrandWheel" name="inputBrandWheel" placeholder="Enter Brand Wheel 1" >
                         <div class="invalid-feedback" id="errorWheelBrand"></div>
                         </div>
                     <div class="form-group col-md-3">
                         <label for="inputDiameter"> Wheel Diameter 1 </label>
-                        <input type="text" name="inputDiameter"  class="form-control" id="inputDiameter" placeholder="Enter diameter Wheel 1" required>
+                        <input type="text" name="inputDiameter"  class="form-control" id="inputDiameter" placeholder="Enter diameter Wheel 1" >
                         <div class="invalid-feedback" id="errorDiameter"></div>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputBrandWheel">Wheel Brand 2</label>
-                        <input type="text" class="form-control" id="inputBrandWheel" name="inputBrandWheel" placeholder="Enter Brand Wheel 2" required>
+                        <input type="text" class="form-control" id="inputBrandWheel" name="inputBrandWheel" placeholder="Enter Brand Wheel 2" >
                         <div class="invalid-feedback" id="errorWheelBrand"></div>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputDiameter">Wheel Diameter 2</label>
-                        <input type="text" class="form-control" id="inputDiameter" name="inputDiameter" placeholder="Enter diameter Wheel 2" required>
+                        <input type="text" class="form-control" id="inputDiameter" name="inputDiameter" placeholder="Enter diameter Wheel 2" >
                         <div class="invalid-feedback" id="errorDiameter"></div>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputBrandWheel">Wheel Brand 3 </label>
-                        <input type="text" class="form-control" id="inputBrandWheel" name="inputBrandWheel" placeholder="Enter Brand Wheel 3" required>
+                        <input type="text" class="form-control" id="inputBrandWheel" name="inputBrandWheel" placeholder="Enter Brand Wheel 3" >
                         <div class="invalid-feedback" id="errorWheelBrand"></div>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputDiameter">Wheel Diameter 3</label>
-                        <input type="text" class="form-control" id="inputDiameter" name="inputDiameter" placeholder="Enter diameter Wheel 3" required>
+                        <input type="text" class="form-control" id="inputDiameter" name="inputDiameter" placeholder="Enter diameter Wheel 3" >
                         <div class="invalid-feedback" id="errorDiameter"></div>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputBrandWheel">Wheel Brand 4</label>
-                        <input type="text" class="form-control" id="inputBrandWheel" name="inputBrandWheel" placeholder="Enter Brand Wheel 4" required>
+                        <input type="text" class="form-control" id="inputBrandWheel" name="inputBrandWheel" placeholder="Enter Brand Wheel 4" >
                         <div class="invalid-feedback" id="errorWheelBrand"></div>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputDiameter">Wheel Diameter 4</label>
-                        <input type="text" class="form-control" id="inputDiameter" name="inputDiameter" placeholder="Enter diameter Wheel 4" required>
+                        <input type="text" class="form-control" id="inputDiameter" name="inputDiameter" placeholder="Enter diameter Wheel 4" >
                         <div class="invalid-feedback" id="errorDiameter"></div>
                     </div>
                 </div>
