@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+body {
+    font-family: Work Sans, Helvetica, sans-serif;
+}
+.parallax {
+    /* The image used */
+    background-image: url("https://cdn.pixabay.com/photo/2018/04/16/19/50/car-smart-eq-fortwo-3325692_960_720.jpg");
+  
+    /* Set a specific height */
+    min-height: 500px; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    margin: 0 0 10px;
+}
+/* The popup form - hidden by default */
+.form-popup {
+    background-color: lightgray;
+    display: none;
+    margin-bottom: 5rem;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+/* Add styles to the form container */
+.form-container {
+    max-width: 100rem;
+    padding: 10px;
+    background-color: white;
+}
+/* Full-width input fields */
+.form-container input[type=text] {
+    width: 100%;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus{
+    background-color: #ddd;
+    outline: none;
+}
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+}
