@@ -20,7 +20,7 @@ body {
     background-size: cover;
   }
 /* Button used to open the contact form - fixed at the bottom of the page */
-.open-button {
+/*.open-button {
     background-color: #555;
     color: white;
     padding: 16px 20px;
@@ -30,7 +30,7 @@ body {
     margin: 0 0 10px;
 }
 /* The popup form - hidden by default */
-.form-popup {
+/*.form-popup {
     background-color: lightgray;
     display: none;
     margin-bottom: 5rem;

@@ -1,4 +1,39 @@
-Volem fer un software per un taller de vehicles de cotxes.
+VEHICLES 
+
+ we want to make a software for a vehicle workshop
+
+ // 1. DEFINE WHAT WE WANT??
+  // Ask the user for information on registration (plate number,brand,color), through a form and display the result
+  //Proces:
+  //form car
+  // - User fill out form
+  // - Form marks erros as (plate number, brand, color is required) && plate number format error. The correct one is 0000XXX
+  // - After creating the car, the system has to give us the option to add 4 wheels 
+
+  //form wheels
+  // - Form marks erros as (wheel, diameter is required) && Invalid diameter. The correct is > 0.4 and < 2 cm
+  // - validate the four wheels
+
+  // We need a website with two buttons for each form. One to send the form and the other to close it.
+  // We need inputs for all elements of the form
+  // Display the list of results
+
+  // - validate the forms using the class "is-invalid" from Boostrap
+
+  // - modifies the program to store more than one vehicle
+
+  
+  // 2. TASK
+  // - FILL HTML(commit/git)
+  // - BASE MOUNT typescript/javascript
+  // - FILL FUNCTIONS
+  
+  
+  //VARIABLES
+  //what HTHML elements I'm going to interact with
+  //Button
+  //Input
+  //List of items to add -> ul
 
 Per compilar el projecte abans d’executar tsc -w, a la carpeta on està el fitxer tsconfig.json 
 
