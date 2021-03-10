@@ -31,7 +31,7 @@
       color.disabled = true;
       btnCreateCar.disabled = true;
 
-        /to show wheel form after car information
+      //to show wheel form after car information
       wheelFormId.classList.remove("d-none");
     } 
   }
