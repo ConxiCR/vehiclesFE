@@ -35,34 +35,29 @@
   
     <!--init formulary CreateCar-->
     <div class="container">
-       <!--<button class="open-button btn btn-outline-primary btn-md">Open Car's Form</button> -->
-       <!--<button class="open-button btn btn-outline-primary btn-md" onclick="openForm1()">Open Car's Form</button> -->
+       <!--<button class="open-button btn btn-outline-primary btn-md">Open Car's Form</button>-->
+       <!--<button class="open-button btn btn-outline-primary btn-md" onclick="openForm1()">Open Car's Form</button>-->
        <div class="form-popup" id="carFormId">
             <h2 class="my-5 text-center text-primary"> Create Car </h2>
-            <form method="POST" name="carForm" id="createCarForm">
+            <form method="POST" name="carForm" class="text-primary" id="createCarForm" novalidate>
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="inputPlate"> Plate </label>
                         <input type="text" class="form-control" id="inputPlate" name="inputPlate" placeholder="Enter plate number">
-                        
                         <div class="invalid-feedback" id="errorPlate"></div>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="inputBrand">Brand</label>
+                        <label for="inputWheelBrand">Brand</label>
                         <input type="text" class="form-control" id="inputBrand" name="inputBrand" placeholder="Enter Brand">
-                        
                         <div class="invalid-feedback" id="errorBrand"></div>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputColor">Color</label>
                         <input type="text" class="form-control" id="inputColor" name="inputColor" placeholder="Enter Color">
-                       
                         <div class="invalid-feedback" id="errorColor"></div>
                     </div>
                 </div>
-               
                 <button type="button" class="btn btn-primary" id="btnCreateCar" onclick="createCar()">Create Car</button>
-                               
             </form>
         </div>
     </div>
@@ -72,71 +67,108 @@
         <!--<button class="open-button btn btn-outline-primary btn-md">Open Wheels's Form</button>-->
         <!--<button class="open-button btn btn-outline-primary btn-md" onclick="openForm2()">Open Wheels's Form</button>-->
         <div class="form-popup" id="wheelFormId">
-            <h3 class="my-5 text-center text-primary">Create wheels</h3>
-            <form method="POST" name="createWheelForm">
+            <h2 class="my-4 text-center text-primary">Add wheels</h2>
+            <form method="POST" name="wheelsForm" class="text-primary"  id="addWheelsForm" >
                 <div class="form-row">
                     <div class="form-group col-md-3">
-                        <label for="inputBrandWheel">Wheel Brand 1</label>
-                        <input type="text" class="form-control" name="inputBrandWheel" placeholder="Enter Brand Wheel 1" >
-                        <div class="invalid-feedback" id="errorWheelBrand"></div>
+                        <label for="inputWheelBrand">Wheel Brand 1</label>
+                        <input type="text" class="form-control" name="inputWheelBrand" id="inputWheelBrand1" placeholder="Enter Brand Wheel 1" >
+                        <div class="invalid-feedback" id="errorWheelBrand1"></div>
                         </div>
                     <div class="form-group col-md-3">
                         <label for="inputDiameter"> Wheel Diameter 1 </label>
-                        <input type="text" class="form-control" name="inputDiameter" placeholder="Enter diameter Wheel 1" >
-                        <div class="invalid-feedback" id="errorDiameter"></div>
+                        <input type="text" class="form-control" name="inputDiameter" id="inputDiameter1" placeholder="Enter diameter Wheel 1" >
+                        <div class="invalid-feedback" id="errorDiameter1"></div>
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="inputBrandWheel">Wheel Brand 2</label>
-                        <input type="text" class="form-control" name="inputBrandWheel" placeholder="Enter Brand Wheel 2" >
-                        <div class="invalid-feedback" id="errorWheelBrand"></div>
+                        <label for="inputWheelBrand">Wheel Brand 2</label>
+                        <input type="text" class="form-control" name="inputWheelBrand" id="inputWheelBrand2" placeholder="Enter Brand Wheel 2" >
+                        <div class="invalid-feedback" id="errorWheelBrand2"></div>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputDiameter">Wheel Diameter 2</label>
-                        <input type="text" class="form-control" name="inputDiameter" placeholder="Enter diameter Wheel 2">
-                        <div class="invalid-feedback" id="errorDiameter"></div>
+                        <input type="text" class="form-control" name="inputDiameter" id="inputDiameter2" placeholder="Enter diameter Wheel 2">
+                        <div class="invalid-feedback" id="errorDiameter2"></div>
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="inputBrandWheel">Wheel Brand 3 </label>
-                        <input type="text" class="form-control" name="inputBrandWheel" placeholder="Enter Brand Wheel 3" >
-                        <div class="invalid-feedback" id="errorWheelBrand"></div>
+                        <label for="inputWheelBrand">Wheel Brand 3 </label>
+                        <input type="text" class="form-control" name="inputWheelBrand" id="inputWheelBrand3" placeholder="Enter Brand Wheel 3" >
+                        <div class="invalid-feedback" id="errorWheelBrand3"></div>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputDiameter">Wheel Diameter 3</label>
-                        <input type="text" class="form-control" name="inputDiameter" placeholder="Enter diameter Wheel 3" >
-                        <div class="invalid-feedback" id="errorDiameter"></div>
+                        <input type="text" class="form-control" name="inputDiameter" id="inputDiameter3" placeholder="Enter diameter Wheel 3" >
+                        <div class="invalid-feedback" id="errorDiameter3"></div>
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="inputBrandWheel">Wheel Brand 4</label>
-                        <input type="text" class="form-control" name="inputBrandWheel" placeholder="Enter Brand Wheel 4" >
-                        <div class="invalid-feedback" id="errorWheelBrand"></div>
+                        <label for="inputWheelBrand">Wheel Brand 4</label>
+                        <input type="text" class="form-control" name="inputWheelBrand" id="inputWheelBrand4" placeholder="Enter Brand Wheel 4" >
+                        <div class="invalid-feedback" id="errorWheelBrand4"></div>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputDiameter">Wheel Diameter 4</label>
-                        <input type="text" class="form-control" name="inputDiameter" placeholder="Enter diameter Wheel 4" >
-                        <div class="invalid-feedback" id="errorDiameter"></div>
+                        <input type="text" class="form-control" name="inputDiameter" id="inputDiameter4" placeholder="Enter diameter Wheel 4" >
+                        <div class="invalid-feedback" id="errorDiameter4"></div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary" onclick="wheelsValidate()">Create Wheels</button>
-                
+                <button type="button" class="btn btn-primary" id="btnAddWheelsForm" onclick="addWheelsList()">Create Wheels</button>
             </form>
         </div>    
     </div>
     <!--end formulary createWheels-->
-    
-    <!-- Car Table Container -->
-    <div class="container car-display-container">
-       
-            <ul>
-                <!--...-->
-            </ul>
-       
-            <ul>
-                <!--...-->
-            </ul>
-     
-    </div>
-    <p id="carInfo"></p>
+    <!-- Car/wheels Table Container -->
+    <section>
+       <!-- <div class="container" id="FormList">
+            <div class="row">
+                <div class="col-12 ">
+                    <div class="my-5 text-center text-primary"></div>
+                    <h2 class="my-5 text-center text-primary">Car's list</h2>
+                    <p id="plateResolt"></p>
+                    <p id="brandResolt"></p>
+                    <p id="colorResolt"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="my-5 text-center text-primary"></div>
+                    <h2 class="my-5 text-center text-primary" >Wheels's list</h2>
+                    <div class="col-md-3">
+                        <h4>Wheel 1:</h4>
+                        <p id=resoltBrand1></p>
+                        <p id=resoltDiameter1></p>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>Wheel 2:</h4>
+                        <p id=resoltBrand2></p>
+                        <p id=resoltDiameter2></p>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>Wheel 3:</h4>
+                        <p id=resoltBrand3></p>
+                        <p id=resoltDiameter3></p>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>Wheel 4:<h4>
+                        <p id=resoltBrand4></p>
+                        <p id=resoltDiameter4></p>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" id="btnResetForm" onclick="resetForm()">close Information</button>
+        </div>   -->
+        <div class="container car-display-container">
+            <table id="infoCar">
+                <ul> </ul>
+                <ul> </ul>
+                <ul> </ul>
+            </table>
+            <table id="infoWheels">
 
+            </table>
+        </div>
+    </section>
+    <!-- End Car/wheels Table Container -->
+    <!--footer-->
     <footer class="jumbotron text-center" style="margin-bottom:0">
     </footer>
 
