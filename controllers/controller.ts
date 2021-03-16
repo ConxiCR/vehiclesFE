@@ -4,24 +4,20 @@
 
     //to show all information about new cars
     let enterButton = document.getElementById("enter") as HTMLElement;
-
-    //buttons of cars & wheels
-    let btnCreateCar = document.getElementById("btnCreateCar") as HTMLInputElement;
-    let btnAddWheelsForm = document.getElementById("btnAddWheelsForm") as HTMLInputElement;
+      
+    let wheelsFormId = document.getElementById("btnAddWheelsForm") as HTMLInputElement;
  
   //FUNCTIONS
   function createCar(){
-    let plate:HTMLInputElement = document.getElementById("inputPlate") as HTMLInputElement;
-    let brand:HTMLInputElement = document.getElementById("inputBrand") as HTMLInputElement;
-    let color:HTMLInputElement = document.getElementById("inputColor") as HTMLInputElement;
+    let plate: HTMLInputElement = document.getElementById("inputPlate") as HTMLInputElement;
+    let brand: HTMLInputElement = document.getElementById("inputBrand") as HTMLInputElement;
+    let color: HTMLInputElement = document.getElementById("inputColor") as HTMLInputElement;
 
     let errorAccount:boolean = carValidate(plate, brand, color);
     
      if(errorAccount == false){
       car = new Car(plate.value.toUpperCase(), color.value, brand.value);
-     showInfoCar(plate,brand,color);
-      
-      
+           
       //disabled from the form to avoid create more cars after we add wheels 
       //plate.disabled = true;
       //brand.disabled = true;
@@ -29,7 +25,7 @@
       //btnCreateCar.disabled = true;
 
       //to show wheel form after car information
-      //WheelsForm.classList.remove("d-none");
+      wheelsFormId.classList.remove("d-none");
     } 
   }
   //Car validation form
@@ -86,7 +82,7 @@ function addWheelsList(){
         let errorAccount = wheelValidate(diameter, i);
         if(errorAccount == false){
           let wheel:Wheel = new Wheel(Number(diameter.value), WheelBrand.value);
-         //car.addWheel(wheel);
+          car.addWheel(wheel);
          console.log(wheel);
         //btnAddWheels.disabled = true;
         } 
@@ -121,31 +117,37 @@ function wheelValidate(diameter:HTMLInputElement, i:number){
   if (errorAccount > 0){
     return false;
   }else{
-    return true;
+    
+    showInfoCar();
   }
+  
 }
 function diameterValidate(diameter:number) {
   return diameter > 0.4 || diameter < 2 ? true : false;
 }
 
-function showInfoCar(plate:HTMLInputElement, brand:HTMLInputElement, color:HTMLInputElement){
-  let infoCar = document.getElementById("infoCar") as HTMLElement;
-  if(!btnCreateCar){
+function showInfoCar(){
+  let carContainer:HTMLElement = document.getElementById('carFormId') as HTMLElement;
+  let wheelContainer:HTMLElement = document.getElementById('wheelFormId') as HTMLElement;
+  carContainer.style.display = ("d-none");
+  wheelContainer.style.display = ("d-none");
+
+  let infoCar:HTMLElement = document.getElementById("infoCar") as HTMLElement;
+
   console.log(car);
-  infoCar.innerHTML= `<li>Plate: ${plate.value}</li>
-                      <li>Brand: ${brand.value}</li>
-                      <li>Color: ${color.value}</li>`;
-  }
+
+  infoCar.innerHTML= `<li>Plate: ${car.plate}</li>
+                      <li>Brand: ${car.brand}</li>
+                      <li>Color: ${car.color}</li>`;
+  
  
  for(let wheel of car.wheels){
   let carResolt = '<ul>';
 
-    carResolt += `<li>Diameter: - ${wheel.diameter}</li>
-                  <li>Brand: - ${wheel.brand}</li>`
-    carResolt += '<ul>';
-    return carResolt;
-
-  }
+    carResolt            = `<li>Diameter: - ${wheel.diameter}</li>
+                            <li>Brand: - ${wheel.brand}</li>`
+    carResolt += '</ul>';
+ }
 }
     
   //EVENTS

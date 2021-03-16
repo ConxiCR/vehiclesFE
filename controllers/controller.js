@@ -3,9 +3,7 @@ var car; //global variable
 var errorAccount = 0;
 //to show all information about new cars
 var enterButton = document.getElementById("enter");
-//buttons of cars & wheels
-var btnCreateCar = document.getElementById("btnCreateCar");
-var btnAddWheelsForm = document.getElementById("btnAddWheelsForm");
+var wheelsFormId = document.getElementById("btnAddWheelsForm");
 //FUNCTIONS
 function createCar() {
     var plate = document.getElementById("inputPlate");
@@ -14,14 +12,13 @@ function createCar() {
     var errorAccount = carValidate(plate, brand, color);
     if (errorAccount == false) {
         car = new Car(plate.value.toUpperCase(), color.value, brand.value);
-        showInfoCar(plate, brand, color);
         //disabled from the form to avoid create more cars after we add wheels 
         //plate.disabled = true;
         //brand.disabled = true;
         //color.disabled = true;
         //btnCreateCar.disabled = true;
         //to show wheel form after car information
-        //WheelsForm.classList.remove("d-none");
+        wheelsFormId.classList.remove("d-none");
     }
 }
 //Car validation form
@@ -74,7 +71,7 @@ function addWheelsList() {
         var errorAccount_1 = wheelValidate(diameter, i);
         if (errorAccount_1 == false) {
             var wheel = new Wheel(Number(diameter.value), WheelBrand.value);
-            //car.addWheel(wheel);
+            car.addWheel(wheel);
             console.log(wheel);
             //btnAddWheels.disabled = true;
         }
@@ -108,24 +105,25 @@ function wheelValidate(diameter, i) {
         return false;
     }
     else {
-        return true;
+        showInfoCar();
     }
 }
 function diameterValidate(diameter) {
     return diameter > 0.4 || diameter < 2 ? true : false;
 }
-function showInfoCar(plate, brand, color) {
+function showInfoCar() {
+    var carContainer = document.getElementById('carFormId');
+    var wheelContainer = document.getElementById('wheelFormId');
+    carContainer.style.display = ("d-none");
+    wheelContainer.style.display = ("d-none");
     var infoCar = document.getElementById("infoCar");
-    if (!btnCreateCar) {
-        console.log(car);
-        infoCar.innerHTML = "<li>Plate: " + plate.value + "</li>\n                      <li>Brand: " + brand.value + "</li>\n                      <li>Color: " + color.value + "</li>";
-    }
+    console.log(car);
+    infoCar.innerHTML = "<li>Plate: " + car.plate + "</li>\n                      <li>Brand: " + car.brand + "</li>\n                      <li>Color: " + car.color + "</li>";
     for (var _i = 0, _a = car.wheels; _i < _a.length; _i++) {
         var wheel = _a[_i];
         var carResolt = '<ul>';
-        carResolt += "<li>Diameter: - " + wheel.diameter + "</li>\n                  <li>Brand: - " + wheel.brand + "</li>";
-        carResolt += '<ul>';
-        return carResolt;
+        carResolt = "<li>Diameter: - " + wheel.diameter + "</li>\n                            <li>Brand: - " + wheel.brand + "</li>";
+        carResolt += '</ul>';
     }
 }
 //EVENTS
