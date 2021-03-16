@@ -131,11 +131,11 @@ function diameterValidate(diameter:number) {
 function showInfoCar(plate:HTMLInputElement, brand:HTMLInputElement, color:HTMLInputElement){
   let infoCar = document.getElementById("infoCar") as HTMLElement;
   if(!btnCreateCar){
-
+  console.log(car);
   infoCar.innerHTML= `<li>Plate: ${plate.value}</li>
                       <li>Brand: ${brand.value}</li>
                       <li>Color: ${color.value}</li>`;
-}
+  }
  
  for(let wheel of car.wheels){
   let carResolt = '<ul>';
@@ -146,6 +146,7 @@ function showInfoCar(plate:HTMLInputElement, brand:HTMLInputElement, color:HTMLI
     return carResolt;
 
   }
+}
     
   //EVENTS
   const carFormList:HTMLInputElement = document.getElementById('infoCar') as HTMLInputElement;
@@ -165,7 +166,7 @@ function showInfoCar(plate:HTMLInputElement, brand:HTMLInputElement, color:HTMLI
     },  true); 
   }
 
-}
+
   /*function createCar(plate:string,brand:string,color:string){
     let car=new Car(plate,color,brand);
     car.addWheel(new Wheel(2,"SEAT"));

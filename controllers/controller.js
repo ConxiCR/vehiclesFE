@@ -117,6 +117,7 @@ function diameterValidate(diameter) {
 function showInfoCar(plate, brand, color) {
     var infoCar = document.getElementById("infoCar");
     if (!btnCreateCar) {
+        console.log(car);
         infoCar.innerHTML = "<li>Plate: " + plate.value + "</li>\n                      <li>Brand: " + brand.value + "</li>\n                      <li>Color: " + color.value + "</li>";
     }
     for (var _i = 0, _a = car.wheels; _i < _a.length; _i++) {
@@ -126,23 +127,23 @@ function showInfoCar(plate, brand, color) {
         carResolt += '<ul>';
         return carResolt;
     }
-    //EVENTS
-    var carFormList = document.getElementById('infoCar');
-    if (carFormList) {
-        carFormList.addEventListener('change', function (event) {
-            event.preventDefault();
-            if (event.target.value.trim != "")
-                event.target.classList.remove('is-invalid');
-        }, true);
-    }
-    var wheelsFormList = document.getElementById('infoWheels');
-    if (wheelsFormList) {
-        wheelsFormList.addEventListener('change', function (event) {
-            event.preventDefault();
-            if (event.target.value.trim != "")
-                event.target.classList.remove('is-invalid');
-        }, true);
-    }
+}
+//EVENTS
+var carFormList = document.getElementById('infoCar');
+if (carFormList) {
+    carFormList.addEventListener('change', function (event) {
+        event.preventDefault();
+        if (event.target.value.trim != "")
+            event.target.classList.remove('is-invalid');
+    }, true);
+}
+var wheelsFormList = document.getElementById('infoWheels');
+if (wheelsFormList) {
+    wheelsFormList.addEventListener('change', function (event) {
+        event.preventDefault();
+        if (event.target.value.trim != "")
+            event.target.classList.remove('is-invalid');
+    }, true);
 }
 /*function createCar(plate:string,brand:string,color:string){
   let car=new Car(plate,color,brand);
