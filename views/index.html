@@ -32,7 +32,6 @@
             </div>
         </div>
     </header>
-  
     <!--init formulary CreateCar-->
     <div class="container">
        <!--<button class="open-button btn btn-outline-primary btn-md">Open Car's Form</button>-->
@@ -66,9 +65,9 @@
     <div class="container">
         <!--<button class="open-button btn btn-outline-primary btn-md">Open Wheels's Form</button>-->
         <!--<button class="open-button btn btn-outline-primary btn-md" onclick="openForm2()">Open Wheels's Form</button>-->
-        <div class="form-popup" id="wheelFormId">
+        <div class="form-popup d-none" id="wheelsFormId">
             <h2 class="my-4 text-center text-primary">Add wheels</h2>
-            <form method="POST" name="wheelsForm" class="text-primary"  id="addWheelsForm" >
+            <form method="POST" name="wheelsForm" class="text-primary "  id="addWheelsForm" >
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="inputWheelBrand">Wheel Brand 1</label>
@@ -111,60 +110,17 @@
                         <div class="invalid-feedback" id="errorDiameter4"></div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary" id="btnAddWheelsForm" onclick="addWheelsList()">Create Wheels</button>
+                <button type="button" id="wheelsButton" class="btn btn-primary" onclick="addWheelsList()">Create Wheels</button>
             </form>
         </div>    
     </div>
     <!--end formulary createWheels-->
     <!-- Car/wheels Table Container -->
     <section>
-       <!-- <div class="container" id="FormList">
-            <div class="row">
-                <div class="col-12 ">
-                    <div class="my-5 text-center text-primary"></div>
-                    <h2 class="my-5 text-center text-primary">Car's list</h2>
-                    <p id="plateResolt"></p>
-                    <p id="brandResolt"></p>
-                    <p id="colorResolt"></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="my-5 text-center text-primary"></div>
-                    <h2 class="my-5 text-center text-primary" >Wheels's list</h2>
-                    <div class="col-md-3">
-                        <h4>Wheel 1:</h4>
-                        <p id=resoltBrand1></p>
-                        <p id=resoltDiameter1></p>
-                    </div>
-                    <div class="col-md-3">
-                        <h4>Wheel 2:</h4>
-                        <p id=resoltBrand2></p>
-                        <p id=resoltDiameter2></p>
-                    </div>
-                    <div class="col-md-3">
-                        <h4>Wheel 3:</h4>
-                        <p id=resoltBrand3></p>
-                        <p id=resoltDiameter3></p>
-                    </div>
-                    <div class="col-md-3">
-                        <h4>Wheel 4:<h4>
-                        <p id=resoltBrand4></p>
-                        <p id=resoltDiameter4></p>
-                    </div>
-                </div>
-            </div>
-            <button type="button" class="btn btn-primary" id="btnResetForm" onclick="resetForm()">close Information</button>
-        </div>   -->
-        <div class="container car-display-container">
-            <table id="infoCar">
-                <ul> </ul>
-                <ul> </ul>
-                <ul> </ul>
-            </table>
-            <table id="infoWheels">
-
-            </table>
+        <div class="row" id="showInfoCar">
+            <ul class="col-12">
+                <!--...-->
+            </ul>
         </div>
     </section>
     <!-- End Car/wheels Table Container -->

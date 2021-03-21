@@ -1,9 +1,10 @@
 "use strict";
 var car; //global variable
 var errorAccount = 0;
-//to show all information about new cars
-var enterButton = document.getElementById("enter");
-var wheelsFormId = document.getElementById("btnAddWheelsForm");
+var enterButton = document.getElementById('enter');
+var ul = document.querySelector("ul");
+var infoCar = document.getElementById('carFormId');
+var wheelsFormId = document.getElementById("showInfoCar");
 //FUNCTIONS
 function createCar() {
     var plate = document.getElementById("inputPlate");
@@ -12,13 +13,11 @@ function createCar() {
     var errorAccount = carValidate(plate, brand, color);
     if (errorAccount == false) {
         car = new Car(plate.value.toUpperCase(), color.value, brand.value);
-        //disabled from the form to avoid create more cars after we add wheels 
-        //plate.disabled = true;
-        //brand.disabled = true;
-        //color.disabled = true;
-        //btnCreateCar.disabled = true;
+        console.log(car);
         //to show wheel form after car information
-        wheelsFormId.classList.remove("d-none");
+        //(<HTMLFormElement>document.getElementById("createCarForm")).classList.add("d-none");
+        // (<HTMLElement>document.getElementById("showCar")).classList.remove("d-none");
+        document.getElementById("wheelsFormId").classList.remove("d-none");
     }
 }
 //Car validation form
@@ -72,10 +71,12 @@ function addWheelsList() {
         if (errorAccount_1 == false) {
             var wheel = new Wheel(Number(diameter.value), WheelBrand.value);
             car.addWheel(wheel);
-            console.log(wheel);
-            //btnAddWheels.disabled = true;
         }
+        console.log(Wheel);
+        console.log(car);
+        //btnAddWheels.disabled = true;
     }
+    generateCarDisplay();
 }
 //let diameter = parseFloat(((<HTMLInputElement>document.getElementById("Diametro" + i)).value));
 //let brand = document.getElementById("MarcaR" + i) as HTMLInputElement
@@ -87,57 +88,73 @@ function wheelValidate(diameter, i) {
     addWheelsForm.classList.remove("is-invalid");
     if (diameter.value == "") {
         diameter.classList.add("is-invalid");
-        errorDiameter.textContent = "Diameter " + [i] + " is required";
+        errorDiameter.textContent = "Diameter wheel " + [i] + " is required";
         errorAccount++;
     }
     else if (!diameterValidate(Number(diameter.value))) {
         diameter.classList.add("is-invalid");
-        errorDiameter.textContent = "Diameter must be between 0.4 and 2 cm";
+        errorDiameter.textContent = "Diameter wheel must be between 0.4 and 2 cm";
         errorAccount++;
     }
     //https://developer.mozilla.org/es/docs/Web/API/Element/innerHTML#valor
     if (wheelBrand.value == "") {
         wheelBrand.classList.add("is-invalid");
-        errorWheelBrand.textContent = "Brand " + [i] + " is required";
+        errorWheelBrand.textContent = "Brand wheel " + [i] + " is required";
         errorAccount++;
     }
     if (errorAccount > 0) {
         return false;
     }
     else {
-        showInfoCar();
+        return true;
     }
 }
 function diameterValidate(diameter) {
-    return diameter > 0.4 || diameter < 2 ? true : false;
+    return diameter > 0.4 && diameter < 2 ? true : false;
+}
+function generateCarDisplay() {
+    deleteCarContainerFromView();
+    generateWheelsContainerForView();
+    showInfoCar();
+}
+function generateWheelsDisplay() {
+    showInfoCar();
+    disableWheelsButton();
+}
+function deleteCarContainerFromView() {
+    var carContainer = document.getElementById("carFormId");
+    carContainer.style.display = "none";
+}
+function generateWheelsContainerForView() {
+    var wheelsContainer = document.getElementById("wheelsFormId");
+    // wheelsContainer.style.display = "block";
+}
+function disableWheelsButton() {
+    var button = document.getElementById("wheelsButton");
+    button.disabled = true;
 }
 function showInfoCar() {
-    var carContainer = document.getElementById('carFormId');
-    var wheelContainer = document.getElementById('wheelFormId');
-    carContainer.style.display = ("d-none");
-    wheelContainer.style.display = ("d-none");
-    var infoCar = document.getElementById("infoCar");
-    console.log(car);
-    infoCar.innerHTML = "<li>Plate: " + car.plate + "</li>\n                      <li>Brand: " + car.brand + "</li>\n                      <li>Color: " + car.color + "</li>";
-    for (var _i = 0, _a = car.wheels; _i < _a.length; _i++) {
-        var wheel = _a[_i];
-        var carResolt = '<ul>';
-        carResolt = "<li>Diameter: - " + wheel.diameter + "</li>\n                            <li>Brand: - " + wheel.brand + "</li>";
-        carResolt += '</ul>';
+    var mensaje = "";
+    for (var n = 0; n < car.wheels.length; n++) {
+        mensaje += " \n          <li>diameter: " + car.wheels[n].diameter + ", brand: " + car.wheels[n].brand + "</li>\n      \n      ";
     }
+    var carInfo = document.getElementById("showInfoCar");
+    var element = document.createElement('ul');
+    element.innerHTML = "\n      <div class=\"card-5 m-5\">\n        <h1 class=\"text-primary\">CAR's details</h1>\n          <div class=\"card-body\">\n              <h2 class=\"text-primary\">CAR:</h2>\n                  <ul class=\"text-white\" style = \"list-style:none;\">\n                      <li>Plate: " + car.plate + "</li>\n                      <li>Color: " + car.color + "</li>\n                      <li>Brand: " + car.brand + "</li>\n                  </ul>\n                  <h4 class=\"text-primary\">WHEELS: </h4>\n                  <ul> \n                      <ol class=\"text-white\">\n                      " + mensaje + "\n                      </ol>\n                      </li>\n                  </ul>\n          </div>\n      </div>\n  ";
+    carInfo.appendChild(element);
 }
 //EVENTS
-var carFormList = document.getElementById('infoCar');
+var carFormList = document.getElementById('createCarForm');
 if (carFormList) {
-    carFormList.addEventListener('change', function (event) {
+    carFormList.addEventListener('blur', function (event) {
         event.preventDefault();
         if (event.target.value.trim != "")
             event.target.classList.remove('is-invalid');
     }, true);
 }
-var wheelsFormList = document.getElementById('infoWheels');
+var wheelsFormList = document.getElementById('addWheelsForm');
 if (wheelsFormList) {
-    wheelsFormList.addEventListener('change', function (event) {
+    wheelsFormList.addEventListener('blur', function (event) {
         event.preventDefault();
         if (event.target.value.trim != "")
             event.target.classList.remove('is-invalid');

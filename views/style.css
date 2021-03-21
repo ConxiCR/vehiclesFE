@@ -20,6 +20,14 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
   }
+  .form-popup{
+      margin-top: 2em;
+      margin-bottom: 5em;
+  }
+  #showInfoCar{
+      margin-left: 20em;
+  }
+  
 /* Button used to open the contact form - fixed at the bottom of the page */
 /*.open-button {
     background-color: #555;
