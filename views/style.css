@@ -19,15 +19,18 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
-  .form-popup{
-      margin-top: 2em;
-      margin-bottom: 5em;
-  }
-  #showInfoCar{
-      margin-left: 20em;
-  }
-  
+}
+.form-popup{
+    margin-top: 2em;
+    margin-bottom: 5em;
+}
+#showInfoCar{
+    margin: 5em;
+}
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+}
 /* Button used to open the contact form - fixed at the bottom of the page */
 /*.open-button {
     background-color: #555;
@@ -64,9 +67,6 @@ body {
     background-color: #ddd;
     outline: none;
 }*/
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-    opacity: 1;
-}
+
 
   
