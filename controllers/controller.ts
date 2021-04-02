@@ -2,12 +2,12 @@
   let carlist = [];
           
     let errorAccount:number = 0;
-    let ul = document.querySelector("ul");
+    let ul = document.querySelector("ul"); 
 
-    //car and whells forms
-    let infoCarForm:any   = document.getElementById("createCarForm");
-    let infoWheelsForm:any = document.getElementById("addWheelsForm");
-    const btnCreateWheel:any = document.getElementById("wheelsButton");
+    //car and wheels forms
+    let infoCarForm:any      = document.getElementById("createCarForm");
+    let infoWheelsForm:any   = document.getElementById("addWheelsForm");
+    let btnCreateWheel:any   = document.getElementById("wheelsButton");
     
     let showCar= document.getElementById("showInfoCar") as HTMLInputElement;
  
@@ -60,119 +60,125 @@
     var regex = /^(\d{4}[a-zA-Z]{3})$/;
     return regex.test(plate.value) ? true : false;
   }
-function showInfoCar():void{
-  
+ //show result of form's car and wheels 
+  function showInfoCar():void{
   showCar.classList.remove('d-none');
     const elementList= (<HTMLElement>document.createElement('ul')); 
-      
-      /*for(let n=0; n<car.wheels.length; n++){
-        let mensaje:string = "";  
-      mensaje += `<li>diameter: ${car.wheels[n].diameter}, brand: ${car.wheels[n].brand}</li>`; 
-    }*/
-      if(car.wheels.length < 1){
-        elementList.innerHTML=
-       `<div class="row col-12 border-bottom border-warning m-0">
-          <h1 class="text-primary">CAR's details</h1>
-          <div class="card-body">
-              <h2 class="text-primary">CAR:</h2>
-                <ul class="text-white" style = "list-style:none;">
-                  <li>Plate: ${car.plate}</li>
-                  <li>Color: ${car.color}</li>
-                  <li>Brand: ${car.brand}</li>
-                </ul>
+    //show firts car after full form validation
+    //https://developer.mozilla.org/es/docs/Web/API/Element/innerHTML#valor
+    if(car.wheels.length < 1){
+      showCar.innerHTML=
+       `<div class="row col-10 border-white">
+          <div class="card-header text-center border-white col-12">
+            <h2 class="text-white">CAR's details</h2>
+          </div>
+          <div class="col-10 text-white"></div>
+          <div class="card-body col-6">
+            <h3 class="text-primary bg-white p-1">CAR:</h3>
+            <ul class="text-white" style = "list-style:none;">
+              <li>Plate: ${car.plate}</li>
+              <li>Brand: ${car.brand}</li>
+              <li>Color: ${car.color}</li>
+            </ul>
           </div>
         </div>`;
-      }else{
-        
-       
-        elementList.innerHTML= 
-          `<div class="card-5 m-5 row col-12 border-bottom border-warning m-0">
-          <h1 class="text-primary">CAR's details</h1>
-          <div class="card-body">
-              <h2 class="text-primary">CAR:</h2>
-                <ul class="text-white" style = "list-style:none;">
-                  <li>Plate: ${car.plate}</li>
-                  <li>Color: ${car.color}</li>
-                  <li>Brand: ${car.brand}</li>
-                </ul>
-              <h2 class="text-primary">WHEELS: </h2>
-                <ul> 
-                <li>diameter: ${car.wheels[0].diameter},
-                 brand: ${car.wheels[0].brand}</li>
-                 <li>diameter: ${car.wheels[1].diameter},
-                 brand: ${car.wheels[1].brand}</li>
-                 <li>diameter: ${car.wheels[2].diameter},
-                 brand: ${car.wheels[2].brand}</li>
-                 <li>diameter: ${car.wheels[3].diameter},
-                 brand: ${car.wheels[3].brand}</li>
-                </ul>
-          </div>}
-        </div>`;
-        
-     // showCar.appendChild(elementList);
-    }
-}
-
-function addWheelsList(){
-
-  let errorDiameter:boolean = false;
-
-  if(errorAccount > 0 && errorDiameter == false ){
-    errorDiameter = true;
+    }else{
+      showCar.innerHTML=       
+        `<div class="col-10 border-white">
+             <div class="card-header text-center border-white col-12">
+               <h2 class="text-white">CAR's details</h2>
+             </div>
+         </div>
+         <div class="row col-10">
+             <div class="card-body col-6">
+                 <h3 class="text-primary bg-white p-1">CAR:</h3>
+                 <div class="text-white">
+                     <span class="font-weight-bold text-white">Plate: </span>${car.plate} 
+                 </div>
+                 <div class="text-white">
+                     <span class="font-weight-bold text-white">Brand: </span>${car.brand} 
+                 </div>
+                 <div class="text-white">
+                     <span class="font-weight-bold text-white">Color: </span>${car.color} 
+                 </div>
+             </div> 
+             <div class="card-body col-6">
+                 <h3 class="text-primary bg-white p-2">WHEELS:</h3>
+                 <div class="">
+                     <div class="font-weight-bold text-white">Wheel 1:</div> 
+                     <div class="text-white">
+                         brand: ${car.wheels[0].brand} 
+                         diameter: ${car.wheels[0].diameter}
+                     </div>
+                 </div>
+                 <div class="">
+                     <div class="font-weight-bold text-white">Wheel 2:</div>
+                     <div class="text-white">
+                         brand: ${car.wheels[1].brand}
+                         diameter: ${car.wheels[1].diameter} 
+                     </div>
+                 </div>
+                 <div class="">
+                     <div class="font-weight-bold text-white">Wheel 3:</div>
+                     <div class="text-white">
+                         brand: ${car.wheels[2].brand}
+                         diameter: ${car.wheels[2].diameter} 
+                     </div>
+                 </div>
+                 <div class="">
+                     <div class="font-weight-bold text-white">Wheel 4:</div>
+                     <div class="text-white">
+                         brand: ${car.wheels[3].brand}
+                         diameter: ${car.wheels[3].diameter} 
+                     </div>
+                     
+                 </div>
+             </div>
+         </div>`;
+        showCar.appendChild(elementList);
+      }
   }
-  for(let i = 1; i <= 4; i++) {
-      let diameter = document.getElementById("inputDiameter" + [i]) as HTMLInputElement;
-      let brand = document.getElementById("inputWheelBrand" + [i]) as HTMLInputElement;
-        let errorAccount = wheelValidate(diameter, i);
-        if(errorAccount == false){
-          let wheel:Wheel = new Wheel(Number(diameter.value), brand.value);
-          car.addWheel(wheel);
-          btnCreateWheel.disabled = true;
-        }
-        console.log(Wheel);
+  function addWheelsList(){
+    if (wheelValidate()){
+      for (let i = 1; i<=4; i++) {
+          
+          let brand:any = (<HTMLInputElement>document.getElementById("inputWheelBrand" + i)).value;
+          let diameter:any = (<HTMLInputElement>document.getElementById("inputDiameter" + i)).value;
+          car.addWheel(new Wheel(brand, diameter));   
+         // btnCreateWheel.disabled = true;
+      }
+        console.log(car.wheels);
         console.log(car);
 
         //Hide the first form
         infoWheelsForm.classList.add('d-none');
         infoWheelsForm.reset();
-        
-
-         showInfoCar();
+    }
+      showInfoCar();
   }
-}
+
   //Form wheels validation
-function wheelValidate(diameter:HTMLInputElement, i:number){   
+  function wheelValidate(){ 
 
-  let errorDiameter: HTMLInputElement = document.getElementById("errorDiameter" + [i]) as HTMLInputElement;    
-  let errorWheelBrand: HTMLInputElement= document.getElementById("errorWheelBrand"+ [i]) as HTMLInputElement;
-  let brand:HTMLInputElement = document.getElementById("inputWheelBrand" + [i]) as HTMLInputElement;
-  
-  infoWheelsForm.classList.remove("is-invalid");
-
-  if (diameter.value == "") {
-    diameter.classList.add("is-invalid");
-    errorDiameter.textContent = `Diameter wheel ${[i]} is required`;
-    errorAccount++;
-  } else if (!diameterValidate(Number(diameter))) {
-    diameter.classList.add("is-invalid");
-    errorDiameter.textContent = "Diameter wheel must be between 0.4 and 2 cm";
-    errorAccount++;
-  }
-  //https://developer.mozilla.org/es/docs/Web/API/Element/innerHTML#valor
- if (brand.value == ""){
-    brand.classList.add("is-invalid");
-    errorWheelBrand.textContent = `Brand wheel ${[i]} is required`;
-    errorAccount++;
-  }
-  if (errorAccount > 0){
-    return false;
-  }else{
-    return true;    
-  }
-}
-function diameterValidate(diameter:number):boolean {
-  return diameter > 0.4 && diameter < 2 ? true : false;
-}
+    for(let j=1;  j<=4;  j++){
+      let diameter:any = document.getElementById("inputDiameter" + j);
+      let diameterValue:any = (<HTMLInputElement>document.getElementById("inputDiameter" + j)).value;
+        
+     //infoWheelsForm.classList.remove("is-invalid");
+      if (diameterValue<0.4 || diameterValue>2){
+        diameter.classList.add("is-invalid");
+        errorAccount=+1;
+      }else if(diameter.classList.contains('is-invalid')){
+        diameter.classList.add("is-invalid");
+        //errorAccount=+1;
+      }
+    }
+    if (errorAccount > 0){
+        return false;
+      }else{
+        return true;    
+    }
+  } 
    
   //EVENTS
   //const carFormList:HTMLInputElement = document.getElementById('createCarForm') as HTMLInputElement;

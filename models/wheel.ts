@@ -1,10 +1,11 @@
 class Wheel{
+    public brand:string
     public diameter:number;
-    public brand:string;
+    ;
 
-    constructor(diameter:number, brand:string){
-        this.diameter=diameter;
+    constructor( brand:string, diameter:number, ){
         this.brand=brand;
+        this.diameter=diameter;
     }
 
 }

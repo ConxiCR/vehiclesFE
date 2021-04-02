@@ -20,8 +20,8 @@
 <body>
     <!--background image and title-->
     <div class="parallax"></div>
-    <!-- header background image and titol -->
-    <header class="carHead p-5">
+    <!--header background image and titol-->
+    <header class="carHead p-4">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-md-10 text-primary mx-auto">
@@ -65,7 +65,7 @@
     <!--<button class="open-button btn btn-outline-primary btn-md" onclick="openForm2()">Open Wheels's Form</button>-->
         <div class="form-popup">
             <form method="POST" name="wheelsForm" class="text-primary form-row col-12 d-none" id="addWheelsForm">
-                <h2 class="my-4 text-center text-primary text-center col-12">Add wheels</h2>
+                <h2 class="my-4 text-center text-primary col-12">Add wheels</h2>
                 <div class="form-group col-md-3">
                     <h4 class="text-center" >Wheel 1</h4>
                     <div class="form-group col-md-12">
@@ -75,8 +75,8 @@
                         </div>
                     <div class="form-group col-md-12">
                         <label for="inputDiameter"> Wheel Diameter 1</label>
-                        <input type="text" class="form-control" name="inputDiameter" id="inputDiameter1" placeholder="Enter diameter Wheel 1" >
-                        <div class="invalid-feedback" id="errorDiameter1"></div>
+                        <input type="number" class="form-control" name="inputDiameter" id="inputDiameter1" placeholder="Enter diameter Wheel 1" >
+                        <div class="invalid-feedback" id="errorDiameter1">Diameter wheel must be between 0.4 and 2 cm</div>
                     </div>
                 </div>
                 <div class="form-groud col-md-3">  
@@ -88,8 +88,8 @@
                     </div>
                     <div class="form-group col-md-12">
                         <label for="inputDiameter">Wheel Diameter 2</label>
-                        <input type="text" class="form-control" name="inputDiameter" id="inputDiameter2" placeholder="Enter diameter Wheel 2">
-                        <div class="invalid-feedback" id="errorDiameter2"></div>
+                        <input type="number" class="form-control" name="inputDiameter" id="inputDiameter2" placeholder="Enter diameter Wheel 2">
+                        <div class="invalid-feedback" id="errorDiameter2">Diameter wheel must be between 0.4 and 2 cm</div>
                     </div>
                 </div>
                 <div class="form-groud col-md-3">
@@ -101,8 +101,8 @@
                     </div>
                     <div class="form-group col-md-12">
                         <label for="inputDiameter">Wheel Diameter 3</label>
-                        <input type="text" class="form-control" name="inputDiameter" id="inputDiameter3" placeholder="Enter diameter Wheel 3" >
-                        <div class="invalid-feedback" id="errorDiameter3"></div>
+                        <input type="number" class="form-control" name="inputDiameter" id="inputDiameter3" placeholder="Enter diameter Wheel 3" >
+                        <div class="invalid-feedback" id="errorDiameter3">Diameter wheel must be between 0.4 and 2 cm</div>
                     </div>
                 </div>    
                 <div class="form-group col-md-3">   
@@ -114,27 +114,33 @@
                     </div>
                     <div class="form-group col-md-12">
                         <label for="inputDiameter">Wheel Diameter 4</label>
-                        <input type="text" class="form-control" name="inputDiameter" id="inputDiameter4" placeholder="Enter diameter Wheel 4" >
-                        <div class="invalid-feedback" id="errorDiameter4"></div>
+                        <input type="number" class="form-control" name="inputDiameter" id="inputDiameter4" placeholder="Enter diameter Wheel 4" >
+                        <div class="invalid-feedback" id="errorDiameter4">Diameter wheel must be between 0.4 and 2 cm></div>
                     </div>
                 </div>
-
                 <button type="button" id="wheelsButton" class="btn btn-primary" onclick="addWheelsList()">Create Wheels</button>
             </form>
         </div>    
     </div>
     <!--end formulary createWheels-->
+<<<<<<< HEAD
     <!-- Car/wheels Table Container -->
     <section>
         <div class="row card border-warning bg-transparent mt-3 pb-3 justify-content-center d-none" id="showInfoCar">
             <ul class="col-6">
+=======
+    <!--Car/wheels Table Container-->
+    <section class="col-10">
+        <div class="card border-primary bg-primary col-12 d-none" id="showInfoCar">
+            <ul>
+>>>>>>> 0e83058 (wheels form)
                 <!--...-->
             </ul>
         </div>
     </section>
     <!-- End Car/wheels Table Container -->
     <!--footer-->
-    <footer class="jumbotron text-center" style="margin-bottom:0">
+    <footer class="jumbotron" style="margin-bottom:0">
     </footer>
 
     <script src="../models/car.js"></script>
