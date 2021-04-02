@@ -89,17 +89,18 @@ function addWheelsList() {
 }
 //Form wheels validation
 function wheelValidate() {
+    var errorAccount = 0;
     for (var j = 1; j <= 4; j++) {
         var diameter = document.getElementById("inputDiameter" + j);
         var diameterValue = document.getElementById("inputDiameter" + j).value;
         //infoWheelsForm.classList.remove("is-invalid");
         if (diameterValue < 0.4 || diameterValue > 2) {
             diameter.classList.add("is-invalid");
-            errorAccount = +1;
+            errorAccount++;
         }
         else if (diameter.classList.contains('is-invalid')) {
             diameter.classList.add("is-invalid");
-            //errorAccount=+1;
+            errorAccount++;
         }
     }
     if (errorAccount > 0) {

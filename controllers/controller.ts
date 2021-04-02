@@ -62,7 +62,7 @@
   }
  //show result of form's car and wheels 
   function showInfoCar():void{
-  showCar.classList.remove('d-none');
+    showCar.classList.remove('d-none');
     const elementList= (<HTMLElement>document.createElement('ul')); 
     //show firts car after full form validation
     //https://developer.mozilla.org/es/docs/Web/API/Element/innerHTML#valor
@@ -159,7 +159,7 @@
 
   //Form wheels validation
   function wheelValidate(){ 
-
+    let errorAccount:number = 0;
     for(let j=1;  j<=4;  j++){
       let diameter:any = document.getElementById("inputDiameter" + j);
       let diameterValue:any = (<HTMLInputElement>document.getElementById("inputDiameter" + j)).value;
@@ -167,16 +167,16 @@
      //infoWheelsForm.classList.remove("is-invalid");
       if (diameterValue<0.4 || diameterValue>2){
         diameter.classList.add("is-invalid");
-        errorAccount=+1;
+        errorAccount++;
       }else if(diameter.classList.contains('is-invalid')){
         diameter.classList.add("is-invalid");
-        //errorAccount=+1;
+        errorAccount++;
       }
-    }
+    }  
     if (errorAccount > 0){
-        return false;
-      }else{
-        return true;    
+      return false;
+    }else{
+      return true;  
     }
   } 
    
