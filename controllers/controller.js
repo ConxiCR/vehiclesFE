@@ -1,21 +1,38 @@
 "use strict";
 var car; //global variable
-var carlist = [];
-var errorAccount = 0;
-var ul = document.querySelector("ul");
+var carList = [];
+var plate = document.getElementById("inputPlate");
+var brand = document.getElementById("inputBrand");
+var color = document.getElementById("inputColor");
 //car and wheels forms
 var infoCarForm = document.getElementById("createCarForm");
 var infoWheelsForm = document.getElementById("addWheelsForm");
-var btnCreateWheel = document.getElementById("wheelsButton");
-var showCar = document.getElementById("showInfoCar");
+var btnCreateCar = document.querySelector("btnCreateCar");
+var btnCreateWheel = document.querySelector("wheelsButton");
+//elements to show cars
+var showOnlyCar = document.getElementById("showOnlyCar");
+var showCarWhithWheels = document.getElementById("showCarWhithWheels");
 //FUNCTIONS
 function createCar() {
-    var plate = document.getElementById("inputPlate");
-    var brand = document.getElementById("inputBrand");
-    var color = document.getElementById("inputColor");
-    var errorPlate = document.getElementById("errorPlate");
+    var validateCar = carValidate(plate, brand, color);
+    if (validateCar == true) {
+        car = new Car(plate.value.toUpperCase(), brand.value, color.value);
+        carList.push(car);
+        //show me car information. 1st form
+        alert("the car has been created correctly:  \n \n Plate:   " + plate.value + "\n Brand:  " + brand.value + "\n Color:   " + color.value);
+        //console.log(car);
+        //Hide the first form
+        infoCarForm.classList.add("d-none");
+        //Display second form
+        infoWheelsForm.classList.remove('d-none');
+        showInfoCar();
+    }
+}
+function carValidate(plate, brand, color) {
+    var errorPlate = document.getElementById('errorPlate');
     var errorBrand = document.getElementById("errorBrand");
     var errorColor = document.getElementById("errorColor");
+    var errorAccount = 0;
     infoCarForm.classList.remove("is-invalid");
     if (plate.value == "") {
         plate.classList.add("is-invalid");
@@ -27,56 +44,80 @@ function createCar() {
         errorPlate.textContent = "Plate format error. The correct one is 0000XXX";
         errorAccount++;
     }
-    else if (brand.value == "") {
+    if (brand.value == "") {
         brand.classList.add("is-invalid");
         errorBrand.textContent = "Please, Brand required";
         errorAccount++;
     }
-    else if (color.value == "") {
+    if (color.value == "") {
         color.classList.add("is-invalid");
         errorColor.textContent = "Please, Color required";
         errorAccount++;
     }
+    if (errorAccount > 0) {
+        return false;
+    }
     else {
-        car = new Car(plate.value.toUpperCase(), brand.value, color.value);
-        carlist.push(car);
-        //show me car information. 1st form
-        alert("the car has been created correctly:  \n \n Plate:   " + plate.value + "\n Brand:  " + brand.value + "\n Color:   " + color.value);
-        //console.log(car);
-        //Hide the first form
-        infoCarForm.classList.add("d-none");
-        //Display second form
-        infoWheelsForm.classList.remove('d-none');
-        showInfoCar();
+        return true;
     }
 }
-//validation plate number form
+//validation plate number formgdgfdgfgf
 function plateValidation(plate) {
     var regex = /^(\d{4}[a-zA-Z]{3})$/;
     return regex.test(plate.value) ? true : false;
 }
 //show result of form's car and wheels 
 function showInfoCar() {
-    showCar.classList.remove('d-none');
-    var elementList = document.createElement('ul');
     //show firts car after full form validation
     //https://developer.mozilla.org/es/docs/Web/API/Element/innerHTML#valor
     if (car.wheels.length < 1) {
-        showCar.innerHTML =
-            "<div class=\"row col-10 border-white\">\n          <div class=\"card-header text-center border-white col-12\">\n            <h2 class=\"text-white\">CAR's details</h2>\n          </div>\n          <div class=\"col-10 text-white\"></div>\n          <div class=\"card-body col-6\">\n            <h3 class=\"text-primary bg-white p-1\">CAR:</h3>\n            <ul class=\"text-white\" style = \"list-style:none;\">\n              <li>Plate: " + car.plate + "</li>\n              <li>Brand: " + car.brand + "</li>\n              <li>Color: " + car.color + "</li>\n            </ul>\n          </div>\n        </div>";
+        showOnlyCar.classList.remove('d-none');
+        //print a car
+        var showPlate = document.getElementById("showPlate").innerHTML = ("Plate: " + plate.value);
+        var showBrand = document.getElementById("showBrand").innerHTML = ("Brand: " + brand.value);
+        var showColor = document.getElementById("showColor").innerHTML = ("Color: " + color.value);
+        showOnlyCar;
+        /*
+        const appCar:any = document.querySelectorAll(".appCar");
+        const template:any =document.getElementById("carPlate");
+  
+        template.outerHTML = `Plate: ${plate.value},  Brand: ${brand.value}, color: ${color.value}`;
+        template.outerHTML;
+      
+        let li = document.createElement("li");
+        let showCar = `Plate: ${plate.value},  Brand: ${brand.value}, color: ${color.value}`;
+        li.innerHTML = showCar;
+        appCar.appendChild(li);*/
+        //let appCar = document.getElementById("appCar").lastChild.innerHTML;
+        //document.getElementById("showOnlyCar").innerHTML = list;               
+        //showPlate:Text = document.createTextNode('Car: ');
+        /*showPlate.textContent =(`${car.plate}`);
+        showBrand = document.createTextNode(`Brand: ${car.brand}`);
+        showColor = document.createTextNode(`Color: ${car.color}`)
+        */
+        infoCarForm.reset();
     }
     else {
-        showCar.innerHTML =
-            "<div class=\"col-10 border-white\">\n             <div class=\"card-header text-center border-white col-12\">\n               <h2 class=\"text-white\">CAR's details</h2>\n             </div>\n         </div>\n         <div class=\"row col-10\">\n             <div class=\"card-body col-6\">\n                 <h3 class=\"text-primary bg-white p-1\">CAR:</h3>\n                 <div class=\"text-white\">\n                     <span class=\"font-weight-bold text-white\">Plate: </span>" + car.plate + " \n                 </div>\n                 <div class=\"text-white\">\n                     <span class=\"font-weight-bold text-white\">Brand: </span>" + car.brand + " \n                 </div>\n                 <div class=\"text-white\">\n                     <span class=\"font-weight-bold text-white\">Color: </span>" + car.color + " \n                 </div>\n             </div> \n             <div class=\"card-body col-6\">\n                 <h3 class=\"text-primary bg-white p-2\">WHEELS:</h3>\n                 <div class=\"\">\n                     <div class=\"font-weight-bold text-white\">Wheel 1:</div> \n                     <div class=\"text-white\">\n                         brand: " + car.wheels[0].brand + " \n                         diameter: " + car.wheels[0].diameter + "\n                     </div>\n                 </div>\n                 <div class=\"\">\n                     <div class=\"font-weight-bold text-white\">Wheel 2:</div>\n                     <div class=\"text-white\">\n                         brand: " + car.wheels[1].brand + "\n                         diameter: " + car.wheels[1].diameter + " \n                     </div>\n                 </div>\n                 <div class=\"\">\n                     <div class=\"font-weight-bold text-white\">Wheel 3:</div>\n                     <div class=\"text-white\">\n                         brand: " + car.wheels[2].brand + "\n                         diameter: " + car.wheels[2].diameter + " \n                     </div>\n                 </div>\n                 <div class=\"\">\n                     <div class=\"font-weight-bold text-white\">Wheel 4:</div>\n                     <div class=\"text-white\">\n                         brand: " + car.wheels[3].brand + "\n                         diameter: " + car.wheels[3].diameter + " \n                     </div>\n                     \n                 </div>\n             </div>\n         </div>";
-        showCar.appendChild(elementList);
+        // showOnlyCar.classList.add('d-none');
+        showCarWhithWheels.classList.remove('d-none');
+        var i = void 0;
+        for (i = 1; i < car.wheels.length; i--) {
+            //showCarWhithWheels.innerHTML =`brand: ${car.wheels[i].brand}
+            //                            diameter: ${car.wheels[i].diameter} `
+            var brandWheel = document.getElementById("inputWheelBrand" + [i]);
+            var diameter = document.getElementById("inputDiameter" + [i]);
+            var showWheelBrand = document.getElementById("showWheelBrand" + [i]).textContent = ("Brand: " + brandWheel);
+            var showDiameter = document.getElementById("showDiameter" + [i]).innerHTML = ("Diameter: " + diameter);
+            showCarWhithWheels;
+        }
     }
 }
 function addWheelsList() {
     if (wheelValidate()) {
         for (var i = 1; i <= 4; i++) {
-            var brand = document.getElementById("inputWheelBrand" + i).value;
+            var brand_1 = document.getElementById("inputWheelBrand" + i).value;
             var diameter = document.getElementById("inputDiameter" + i).value;
-            car.addWheel(new Wheel(brand, diameter));
+            car.addWheel(new Wheel(brand_1, diameter));
             // btnCreateWheel.disabled = true;
         }
         console.log(car.wheels);
