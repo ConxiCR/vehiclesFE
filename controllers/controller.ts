@@ -1,3 +1,4 @@
+"use strict";
 let car:Car;//global variable
 let carList = [];
     let plate = document.getElementById("inputPlate") as HTMLInputElement;
@@ -107,18 +108,27 @@ let carList = [];
      // showOnlyCar.classList.add('d-none');
       showCarWhithWheels.classList.remove('d-none');
       let i:number;
-      for(i = 1;i<car.wheels.length;i--){
-
-      //showCarWhithWheels.innerHTML =`brand: ${car.wheels[i].brand}
-        //                            diameter: ${car.wheels[i].diameter} `
+     /* for(i = 1;i<4;i++){
         let brandWheel:HTMLInputElement= <HTMLInputElement>document.getElementById("inputWheelBrand" + [i]);
         let diameter:HTMLInputElement = <HTMLInputElement>document.getElementById("inputDiameter" + [i]);
         
-        let showWheelBrand: any = (document.getElementById("showWheelBrand" + [i]) as HTMLSpanElement).textContent  = ("Brand: " + brandWheel); 
-        let showDiameter:   any = (document.getElementById("showDiameter" + [i]) as HTMLSpanElement).innerHTML    = ("Diameter: " + diameter);
+        //let showWheelBrand: any = (document.getElementById("showWheelBrand" + [i]) as HTMLSpanElement).textContent  = ("Brand: " + brandWheel); 
+        //let showDiameter:   any = (document.getElementById("showDiameter" + [i]) as HTMLSpanElement).innerHTML    = ("Diameter: " + diameter);
         
+        let showCarWhithWheels:HTMLDivElement = <HTMLInputElement>document.getElementById("showCarWhithWheels");
+        let showWheels:Text = document.createTextNode(`Brand: ${car.wheels[i].brand} Diameter: ${car.wheels[i].diameter.toString()}`);
+             
         showCarWhithWheels;
-      }
+      }*/
+      for(let i=0; i<4; i++)    {
+        Wheel:
+        let wheelNumber:number = 1;
+        //let showCarWhithWheels:HTMLDivElement = <HTMLInputElement>document.getElementById("showCarWhithWheels");
+         
+        let showWheels:Text = document.createTextNode(`Brand: ${car.wheels[i].brand} Diameter: ${car.wheels[i].diameter.toString()}`);
+        showCarWhithWheels.appendChild(showWheels);
+        wheelNumber++;
+    }
     }
   }
   function addWheelsList(){

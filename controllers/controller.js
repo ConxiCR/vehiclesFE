@@ -101,14 +101,24 @@ function showInfoCar() {
         // showOnlyCar.classList.add('d-none');
         showCarWhithWheels.classList.remove('d-none');
         var i = void 0;
-        for (i = 1; i < car.wheels.length; i--) {
-            //showCarWhithWheels.innerHTML =`brand: ${car.wheels[i].brand}
-            //                            diameter: ${car.wheels[i].diameter} `
-            var brandWheel = document.getElementById("inputWheelBrand" + [i]);
-            var diameter = document.getElementById("inputDiameter" + [i]);
-            var showWheelBrand = document.getElementById("showWheelBrand" + [i]).textContent = ("Brand: " + brandWheel);
-            var showDiameter = document.getElementById("showDiameter" + [i]).innerHTML = ("Diameter: " + diameter);
-            showCarWhithWheels;
+        /* for(i = 1;i<4;i++){
+           let brandWheel:HTMLInputElement= <HTMLInputElement>document.getElementById("inputWheelBrand" + [i]);
+           let diameter:HTMLInputElement = <HTMLInputElement>document.getElementById("inputDiameter" + [i]);
+           
+           //let showWheelBrand: any = (document.getElementById("showWheelBrand" + [i]) as HTMLSpanElement).textContent  = ("Brand: " + brandWheel);
+           //let showDiameter:   any = (document.getElementById("showDiameter" + [i]) as HTMLSpanElement).innerHTML    = ("Diameter: " + diameter);
+           
+           let showCarWhithWheels:HTMLDivElement = <HTMLInputElement>document.getElementById("showCarWhithWheels");
+           let showWheels:Text = document.createTextNode(`Brand: ${car.wheels[i].brand} Diameter: ${car.wheels[i].diameter.toString()}`);
+                
+           showCarWhithWheels;
+         }*/
+        for (var i_1 = 0; i_1 < 4; i_1++) {
+            Wheel: var wheelNumber = 1;
+            //let showCarWhithWheels:HTMLDivElement = <HTMLInputElement>document.getElementById("showCarWhithWheels");
+            var showWheels = document.createTextNode("Brand: " + car.wheels[i_1].brand + " Diameter: " + car.wheels[i_1].diameter.toString());
+            showCarWhithWheels.appendChild(showWheels);
+            wheelNumber++;
         }
     }
 }
@@ -168,16 +178,3 @@ if (infoWheelsForm) {
             event.target.classList.remove('is-invalid');
     }, true);
 }
-/*function createCar(plate:string,brand:string,color:string){
-  let car=new Car(plate,color,brand);
-  car.addWheel(new Wheel(2,"SEAT"));
-  document.body.innerText="CAR: PLATE: " + car.plate
-  + " COLOR: " +car.color + " BRAND: " + brand
-  + " WHEELS: " + JSON.stringify(car.wheels);
-}*/
-/* function openForm1(){
-   document.getElementById("carFormId").style.display = "block";
-  }
- function openForm2(){
-    document.getElementById("wheelsFormId").style.display = "block";
- }*/
