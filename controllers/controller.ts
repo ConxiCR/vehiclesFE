@@ -115,7 +115,7 @@ let carList = [];
         //let wheelNumber:number = 1;
         console.log(car.wheels[i]);
         //Create a new element to show information
-        let node:HTMLHeadingElement = document.createElement("h6");
+        let node:any = document.createElement("h6");
         let textNode:Text = document.createTextNode("Wheel " + [i+1]);
         node.appendChild(textNode);
         showCarWhithWheels.appendChild(node);
@@ -129,7 +129,7 @@ let carList = [];
   function addWheelsList(){
     if (wheelValidate()){
       for (let i = 1; i<=4; i++) {
-        let brand:any = (<HTMLInputElement>document.getElementById("inputWheelBrand" + i)).value;
+        let brand:string = (<HTMLInputElement>document.getElementById("inputWheelBrand" + i)).value;
         let diameter:any = (<HTMLInputElement>document.getElementById("inputDiameter" + i)).value;
         car.addWheel(new Wheel(brand, diameter));   
         // btnCreateWheel.disabled = true;
