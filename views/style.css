@@ -31,6 +31,9 @@ body {
 .form-container .btn:hover, .open-button:hover {
     opacity: 1;
 }
+h6{
+    color: #007BFF;
+}
 /* Button used to open the contact form - fixed at the bottom of the page */
 /*.open-button {
     background-color: #555;

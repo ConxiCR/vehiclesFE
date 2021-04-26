@@ -1,9 +1,11 @@
 "use strict";
 let car:Car;//global variable
 let carList = [];
-    let plate = document.getElementById("inputPlate") as HTMLInputElement;
-    let brand = document.getElementById("inputBrand") as HTMLInputElement;
-    let color = document.getElementById("inputColor") as HTMLInputElement;  
+    let plate:any = document.getElementById("inputPlate") as HTMLInputElement;
+    let brand:any = document.getElementById("inputBrand") as HTMLInputElement;
+    let color:any = document.getElementById("inputColor") as HTMLInputElement;  
+    let j:number = 0;
+    let diameter:any = document.getElementById("inputDiameter" + j);
     //car and wheels forms
     let infoCarForm:any      = document.getElementById("createCarForm") as HTMLFormElement;
     let infoWheelsForm:any   = document.getElementById("addWheelsForm") as HTMLFormElement;
@@ -108,27 +110,20 @@ let carList = [];
      // showOnlyCar.classList.add('d-none');
       showCarWhithWheels.classList.remove('d-none');
       let i:number;
-     /* for(i = 1;i<4;i++){
-        let brandWheel:HTMLInputElement= <HTMLInputElement>document.getElementById("inputWheelBrand" + [i]);
-        let diameter:HTMLInputElement = <HTMLInputElement>document.getElementById("inputDiameter" + [i]);
-        
-        //let showWheelBrand: any = (document.getElementById("showWheelBrand" + [i]) as HTMLSpanElement).textContent  = ("Brand: " + brandWheel); 
-        //let showDiameter:   any = (document.getElementById("showDiameter" + [i]) as HTMLSpanElement).innerHTML    = ("Diameter: " + diameter);
-        
-        let showCarWhithWheels:HTMLDivElement = <HTMLInputElement>document.getElementById("showCarWhithWheels");
-        let showWheels:Text = document.createTextNode(`Brand: ${car.wheels[i].brand} Diameter: ${car.wheels[i].diameter.toString()}`);
-             
-        showCarWhithWheels;
-      }*/
+     
       for(let i=0; i<4; i++)    {
-        Wheel:
-        let wheelNumber:number = 1;
-        //let showCarWhithWheels:HTMLDivElement = <HTMLInputElement>document.getElementById("showCarWhithWheels");
-         
+        //let wheelNumber:number = 1;
+        console.log(car.wheels[i]);
+        //Create a new element to show information
+        let node:HTMLHeadingElement = document.createElement("h6");
+        let textNode:Text = document.createTextNode("Wheel " + [i+1]);
+        node.appendChild(textNode);
+        showCarWhithWheels.appendChild(node);
         let showWheels:Text = document.createTextNode(`Brand: ${car.wheels[i].brand} Diameter: ${car.wheels[i].diameter.toString()}`);
         showCarWhithWheels.appendChild(showWheels);
-        wheelNumber++;
-    }
+        //wheelNumber++;
+        showWheels;
+      }
     }
   }
   function addWheelsList(){
@@ -147,7 +142,6 @@ let carList = [];
     }
       showInfoCar();
   }
-
   //Form wheels validation
   function wheelValidate(){ 
     let errorAccount:number = 0;

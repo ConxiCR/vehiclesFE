@@ -4,6 +4,8 @@ var carList = [];
 var plate = document.getElementById("inputPlate");
 var brand = document.getElementById("inputBrand");
 var color = document.getElementById("inputColor");
+var j = 0;
+var diameter = document.getElementById("inputDiameter" + j);
 //car and wheels forms
 var infoCarForm = document.getElementById("createCarForm");
 var infoWheelsForm = document.getElementById("addWheelsForm");
@@ -101,24 +103,18 @@ function showInfoCar() {
         // showOnlyCar.classList.add('d-none');
         showCarWhithWheels.classList.remove('d-none');
         var i = void 0;
-        /* for(i = 1;i<4;i++){
-           let brandWheel:HTMLInputElement= <HTMLInputElement>document.getElementById("inputWheelBrand" + [i]);
-           let diameter:HTMLInputElement = <HTMLInputElement>document.getElementById("inputDiameter" + [i]);
-           
-           //let showWheelBrand: any = (document.getElementById("showWheelBrand" + [i]) as HTMLSpanElement).textContent  = ("Brand: " + brandWheel);
-           //let showDiameter:   any = (document.getElementById("showDiameter" + [i]) as HTMLSpanElement).innerHTML    = ("Diameter: " + diameter);
-           
-           let showCarWhithWheels:HTMLDivElement = <HTMLInputElement>document.getElementById("showCarWhithWheels");
-           let showWheels:Text = document.createTextNode(`Brand: ${car.wheels[i].brand} Diameter: ${car.wheels[i].diameter.toString()}`);
-                
-           showCarWhithWheels;
-         }*/
         for (var i_1 = 0; i_1 < 4; i_1++) {
-            Wheel: var wheelNumber = 1;
-            //let showCarWhithWheels:HTMLDivElement = <HTMLInputElement>document.getElementById("showCarWhithWheels");
+            //let wheelNumber:number = 1;
+            console.log(car.wheels[i_1]);
+            //Create a new element to show information
+            var node = document.createElement("h6");
+            var textNode = document.createTextNode("Wheel " + [i_1 + 1]);
+            node.appendChild(textNode);
+            showCarWhithWheels.appendChild(node);
             var showWheels = document.createTextNode("Brand: " + car.wheels[i_1].brand + " Diameter: " + car.wheels[i_1].diameter.toString());
             showCarWhithWheels.appendChild(showWheels);
-            wheelNumber++;
+            //wheelNumber++;
+            showWheels;
         }
     }
 }
@@ -126,8 +122,8 @@ function addWheelsList() {
     if (wheelValidate()) {
         for (var i = 1; i <= 4; i++) {
             var brand_1 = document.getElementById("inputWheelBrand" + i).value;
-            var diameter = document.getElementById("inputDiameter" + i).value;
-            car.addWheel(new Wheel(brand_1, diameter));
+            var diameter_1 = document.getElementById("inputDiameter" + i).value;
+            car.addWheel(new Wheel(brand_1, diameter_1));
             // btnCreateWheel.disabled = true;
         }
         console.log(car.wheels);
@@ -141,16 +137,16 @@ function addWheelsList() {
 //Form wheels validation
 function wheelValidate() {
     var errorAccount = 0;
-    for (var j = 1; j <= 4; j++) {
-        var diameter = document.getElementById("inputDiameter" + j);
-        var diameterValue = document.getElementById("inputDiameter" + j).value;
+    for (var j_1 = 1; j_1 <= 4; j_1++) {
+        var diameter_2 = document.getElementById("inputDiameter" + j_1);
+        var diameterValue = document.getElementById("inputDiameter" + j_1).value;
         //infoWheelsForm.classList.remove("is-invalid");
         if (diameterValue < 0.4 || diameterValue > 2) {
-            diameter.classList.add("is-invalid");
+            diameter_2.classList.add("is-invalid");
             errorAccount++;
         }
-        else if (diameter.classList.contains('is-invalid')) {
-            diameter.classList.add("is-invalid");
+        else if (diameter_2.classList.contains('is-invalid')) {
+            diameter_2.classList.add("is-invalid");
             errorAccount++;
         }
     }
