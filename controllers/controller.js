@@ -104,7 +104,7 @@ function showInfoCar() {
         showCarWhithWheels.classList.remove('d-none');
         var i = void 0;
         for (var i_1 = 0; i_1 < 4; i_1++) {
-            //let wheelNumber:number = 1;
+            var wheelNumber = 1;
             console.log(car.wheels[i_1]);
             //Create a new element to show information
             var node = document.createElement("h6");
@@ -113,7 +113,7 @@ function showInfoCar() {
             showCarWhithWheels.appendChild(node);
             var showWheels = document.createTextNode("Brand: " + car.wheels[i_1].brand + " Diameter: " + car.wheels[i_1].diameter.toString());
             showCarWhithWheels.appendChild(showWheels);
-            //wheelNumber++;
+            wheelNumber++;
             showWheels;
         }
     }
