@@ -112,7 +112,7 @@ let carList = [];
       let i:number;
      
       for(let i=0; i<4; i++)    {
-        //let wheelNumber:number = 1;
+        let wheelNumber:number = 1;
         console.log(car.wheels[i]);
         //Create a new element to show information
         let node:any = document.createElement("h6");
@@ -121,7 +121,7 @@ let carList = [];
         showCarWhithWheels.appendChild(node);
         let showWheels:Text = document.createTextNode(`Brand: ${car.wheels[i].brand} Diameter: ${car.wheels[i].diameter.toString()}`);
         showCarWhithWheels.appendChild(showWheels);
-        //wheelNumber++;
+        wheelNumber++;
         showWheels;
       }
     }
