@@ -14,8 +14,8 @@ let carList = [];
     let btnCreateWheel:any   = document.querySelector("wheelsButton") as HTMLButtonElement;
 
     //elements to show cars
+    let showInfo:HTMLElement = document.getElementById("showInfo") as HTMLDivElement;
     let showOnlyCar:HTMLElement = document.getElementById("showOnlyCar") as HTMLElement;
-    
     let showCarWhithWheels:HTMLDivElement = document.getElementById("showCarWhithWheels") as HTMLInputElement;
       
   //FUNCTIONS
@@ -78,6 +78,7 @@ let carList = [];
     //show firts car after full form validation
     //https://developer.mozilla.org/es/docs/Web/API/Element/innerHTML#valor
     if(car.wheels.length < 1){
+      showInfo.classList.remove('d-none');
       showOnlyCar.classList.remove('d-none');
       //print a car
       let showPlate: any = (document.getElementById("showPlate") as HTMLSpanElement).innerHTML = ("Plate: " + plate.value);
@@ -85,13 +86,7 @@ let carList = [];
       let showColor: any = (document.getElementById("showColor") as HTMLSpanElement).innerHTML = ("Color: " + color.value);
       showOnlyCar;
       
-      /*
-      const appCar:any = document.querySelectorAll(".appCar");
-      const template:any =document.getElementById("carPlate");
-
-      template.outerHTML = `Plate: ${plate.value},  Brand: ${brand.value}, color: ${color.value}`;
-      template.outerHTML;
-    
+     /*    
       let li = document.createElement("li");
       let showCar = `Plate: ${plate.value},  Brand: ${brand.value}, color: ${color.value}`;
       li.innerHTML = showCar;
@@ -115,7 +110,7 @@ let carList = [];
         let wheelNumber:number = 1;
         console.log(car.wheels[i]);
         //Create a new element to show information
-        let node:any = document.createElement("h6");
+        let node:Element = document.createElement("h6");
         let textNode:Text = document.createTextNode("Wheel " + [i+1]);
         node.appendChild(textNode);
         showCarWhithWheels.appendChild(node);

@@ -12,6 +12,7 @@ var infoWheelsForm = document.getElementById("addWheelsForm");
 var btnCreateCar = document.querySelector("btnCreateCar");
 var btnCreateWheel = document.querySelector("wheelsButton");
 //elements to show cars
+var showInfo = document.getElementById("showInfo");
 var showOnlyCar = document.getElementById("showOnlyCar");
 var showCarWhithWheels = document.getElementById("showCarWhithWheels");
 //FUNCTIONS
@@ -73,6 +74,7 @@ function showInfoCar() {
     //show firts car after full form validation
     //https://developer.mozilla.org/es/docs/Web/API/Element/innerHTML#valor
     if (car.wheels.length < 1) {
+        showInfo.classList.remove('d-none');
         showOnlyCar.classList.remove('d-none');
         //print a car
         var showPlate = document.getElementById("showPlate").innerHTML = ("Plate: " + plate.value);
@@ -80,16 +82,10 @@ function showInfoCar() {
         var showColor = document.getElementById("showColor").innerHTML = ("Color: " + color.value);
         showOnlyCar;
         /*
-        const appCar:any = document.querySelectorAll(".appCar");
-        const template:any =document.getElementById("carPlate");
-  
-        template.outerHTML = `Plate: ${plate.value},  Brand: ${brand.value}, color: ${color.value}`;
-        template.outerHTML;
-      
-        let li = document.createElement("li");
-        let showCar = `Plate: ${plate.value},  Brand: ${brand.value}, color: ${color.value}`;
-        li.innerHTML = showCar;
-        appCar.appendChild(li);*/
+         let li = document.createElement("li");
+         let showCar = `Plate: ${plate.value},  Brand: ${brand.value}, color: ${color.value}`;
+         li.innerHTML = showCar;
+         appCar.appendChild(li);*/
         //let appCar = document.getElementById("appCar").lastChild.innerHTML;
         //document.getElementById("showOnlyCar").innerHTML = list;               
         //showPlate:Text = document.createTextNode('Car: ');
